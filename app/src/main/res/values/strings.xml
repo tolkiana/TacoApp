@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Taco App</string>
+    <string name="title_history">History</string>
+    <string name="title_famous_tacos">Famous tacos</string>
+    <string name="title_taco_friends">taco friends</string>
+</resources>
