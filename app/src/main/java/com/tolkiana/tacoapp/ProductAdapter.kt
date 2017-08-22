@@ -16,7 +16,7 @@ class ProductAdapter(private val products: List<Product>): Adapter<ProductAdapte
 
     override fun onBindViewHolder(productHolder: ProductHolder?, position: Int) {
         val product = products[position]
-        productHolder?.productNameTextView?.text = product.getName()
+        productHolder?.productNameTextView?.text = product.name
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ProductHolder {
