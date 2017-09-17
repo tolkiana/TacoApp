@@ -8,7 +8,7 @@ import java.nio.charset.Charset
 /**
  * Created by tolkiana on 8/21/17.
  */
-class DataParser {
+object DataParser {
     val mapper = jacksonObjectMapper()
 
     inline fun <reified T> parseArrayFromAsset(assetManager: AssetManager, fileName: String): List<T> {

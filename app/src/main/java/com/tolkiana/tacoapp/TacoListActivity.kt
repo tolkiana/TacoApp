@@ -15,7 +15,7 @@ class TacoListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_taco_list)
 
-        val tacoList = DataParser().parseArrayFromAsset<Product>(this.assets, "tacos.json")
+        val tacoList = DataParser.parseArrayFromAsset<Product>(this.assets, "tacos.json")
         val imageLoader = ImageLoader(Volley.newRequestQueue(this), BitmapCache())
         val productAdapter = ProductAdapter(tacoList, imageLoader)
 
