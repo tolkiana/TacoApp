@@ -6,17 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.android.volley.toolbox.ImageLoader
+import com.android.volley.toolbox.NetworkImageView
 
 /**
  * Created by tolkiana on 7/11/17.
  */
-class ProductAdapter(private val products: List<Product>): Adapter<ProductAdapter.ProductHolder>() {
+class ProductAdapter(private val products: List<Product>, private val imageLoader: ImageLoader): Adapter<ProductAdapter.ProductHolder>() {
 
     override fun getItemCount(): Int = products.size
 
     override fun onBindViewHolder(productHolder: ProductHolder?, position: Int) {
         val product = products[position]
         productHolder?.productNameTextView?.text = product.name
+        productHolder?.productImageView?.setImageUrl(product.imageURL, imageLoader)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ProductHolder {
@@ -27,5 +30,6 @@ class ProductAdapter(private val products: List<Product>): Adapter<ProductAdapte
 
     class ProductHolder(view: View?) : RecyclerView.ViewHolder(view) {
         val productNameTextView: TextView = view?.findViewById(R.id.productNameTextView) as TextView
+        val productImageView: NetworkImageView = view?.findViewById(R.id.productImageView) as NetworkImageView
     }
 }
