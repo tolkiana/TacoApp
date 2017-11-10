@@ -22,8 +22,9 @@ object DataParser {
         return mapper.readValue(asset, T::class.java)
     }
 
-    inline fun <reified T> parseArrayFromJSON(json: String): T {
-        return  mapper.readValue(json, T::class.java)
+    inline fun <reified T> parseArrayFromJSON(json: String): List<T> {
+        val collectionType = mapper.typeFactory.constructCollectionType(List::class.java, T::class.java)
+        return mapper.readValue(json, collectionType)
     }
 
     fun AssetManager.fileAsString(filename: String): String {
