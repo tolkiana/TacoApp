@@ -22,6 +22,10 @@ object DataParser {
         return mapper.readValue(asset, T::class.java)
     }
 
+    inline fun <reified T> parseArrayFromJSON(json: String): T {
+        return  mapper.readValue(json, T::class.java)
+    }
+
     fun AssetManager.fileAsString(filename: String): String {
         return open(filename).use {
             it.readBytes().toString(Charset.defaultCharset())
