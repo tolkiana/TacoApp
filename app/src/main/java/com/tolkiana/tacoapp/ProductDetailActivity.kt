@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 /**
  * Created by tolkiana on 12/3/17.
  */
-class ProductDetailActivity: AppCompatActivity {
+class ProductDetailActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
