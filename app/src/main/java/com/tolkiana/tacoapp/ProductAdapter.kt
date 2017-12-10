@@ -14,12 +14,13 @@ import com.android.volley.toolbox.NetworkImageView
  */
 class ProductAdapter(private val products: List<Product>, private val imageLoader: ImageLoader): Adapter<ProductAdapter.ProductHolder>() {
 
+    var onItemClickListener: OnItemClickListener? = null
+
     override fun getItemCount(): Int = products.size
 
     override fun onBindViewHolder(productHolder: ProductHolder?, position: Int) {
         val product = products[position]
-        productHolder?.productNameTextView?.text = product.name
-        productHolder?.productImageView?.setImageUrl(product.imageURL, imageLoader)
+        productHolder?.bind(product, imageLoader, onItemClickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ProductHolder {
@@ -28,8 +29,20 @@ class ProductAdapter(private val products: List<Product>, private val imageLoade
         return ProductHolder(productRowView)
     }
 
-    class ProductHolder(view: View?) : RecyclerView.ViewHolder(view) {
-        val productNameTextView: TextView = view?.findViewById(R.id.productNameTextView) as TextView
-        val productImageView: NetworkImageView = view?.findViewById(R.id.productImageView) as NetworkImageView
+    class ProductHolder(private val parent: View?) : RecyclerView.ViewHolder(parent) {
+        private val productNameTextView: TextView = parent?.findViewById(R.id.productNameTextView) as TextView
+        private val productImageView: NetworkImageView = parent?.findViewById(R.id.productImageView) as NetworkImageView
+
+        fun bind(product: Product, imageLoader: ImageLoader, onItemClickListener: OnItemClickListener?) {
+            productNameTextView.text = product.name
+            productImageView.setImageUrl(product.imageURL, imageLoader)
+            parent?.setOnClickListener {
+                onItemClickListener?.onItemClick(product)
+            }
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(product: Product)
     }
 }
