@@ -11,20 +11,8 @@ import java.nio.charset.Charset
 object DataParser {
     val mapper = jacksonObjectMapper()
 
-    inline fun <reified T> parseArrayFromAsset(assetManager: AssetManager, fileName: String): List<T> {
-        val asset = assetManager.fileAsString(fileName)
+    inline fun <reified T> parseArrayFromJSON(json: String): List<T> {
         val collectionType = mapper.typeFactory.constructCollectionType(List::class.java, T::class.java)
-        return mapper.readValue(asset, collectionType)
-    }
-
-    inline fun <reified T> parseObjectFromAsset(assetManager: AssetManager, fileName: String): T {
-        val asset = assetManager.fileAsString(fileName)
-        return mapper.readValue(asset, T::class.java)
-    }
-
-    fun AssetManager.fileAsString(filename: String): String {
-        return open(filename).use {
-            it.readBytes().toString(Charset.defaultCharset())
-        }
+        return mapper.readValue(json, collectionType)
     }
 }
