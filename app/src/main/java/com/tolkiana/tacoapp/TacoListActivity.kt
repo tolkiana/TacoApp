@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_taco_list.*
 class TacoListActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener {
 
     companion object {
+        const val TACO_SERVICE_URL = "https://afternoon-sea-72400.herokuapp.com"
         const val EXTRA_PRODUCT = "Product"
     }
 
@@ -22,7 +23,7 @@ class TacoListActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener
 
         val progressBar = findViewById(R.id.progressBar)
         progressBar.visibility = View.VISIBLE
-        val productService = ProductsService("https://afternoon-sea-72400.herokuapp.com")
+        val productService = ProductsService(TACO_SERVICE_URL)
         productService.getTacosList { tacoList ->
             val productAdapter = ProductAdapter(tacoList, ApplicationImageLoader.getInstance(this))
             productAdapter.onItemClickListener = this
