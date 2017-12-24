@@ -16,11 +16,10 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
     }
 
     override fun getItemViewType(position: Int): Int {
-        val type = when (position) {
+        return when (position) {
             0 -> TYPE_INGREDIENTS
             else -> TYPE_PREPARATION
         }
-        return type
     }
 
     override fun getItemCount(): Int = 2
@@ -30,14 +29,13 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-        val viewHolder: RecyclerView.ViewHolder = when(viewType) {
+        return when(viewType) {
             TYPE_INGREDIENTS -> IngredientsHolder(createView(parent, R.layout.list_row_product_ingredients))
             else -> PreparationHolder(createView(parent, R.layout.list_row_product_preparation))
         }
-        return  viewHolder
     }
 
-    fun createView(parent: ViewGroup?, identifier: Int) : View {
+    private fun createView(parent: ViewGroup?, identifier: Int) : View {
         val layoutInflater = LayoutInflater.from(parent?.context)
         return layoutInflater.inflate(identifier, parent,false)
     }
@@ -48,7 +46,7 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
         }
 
     }
-˚
+
     class PreparationHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
         override fun bind(product: Product) {
             TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
