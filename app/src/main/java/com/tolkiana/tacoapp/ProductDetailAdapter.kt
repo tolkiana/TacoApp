@@ -30,31 +30,29 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+        val layoutInflater = LayoutInflater.from(parent?.context)
+        val rowView = layoutInflater.inflate(R.layout.list_row_product_details, parent,false)
+
         return when(viewType) {
-            TYPE_INGREDIENTS -> IngredientsHolder(createView(parent, R.layout.list_row_product_ingredients))
-            else -> PreparationHolder(createView(parent, R.layout.list_row_product_preparation))
+            TYPE_INGREDIENTS -> IngredientsHolder(rowView)
+            else -> PreparationHolder(rowView)
         }
     }
 
-    private fun createView(parent: ViewGroup?, identifier: Int) : View {
-        val layoutInflater = LayoutInflater.from(parent?.context)
-        return layoutInflater.inflate(identifier, parent,false)
-    }
-
     class IngredientsHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
-        private val ingredientsTextView: TextView = parent?.findViewById(R.id.ingredientsTextView) as TextView
+        private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
 
         override fun bind(product: Product) {
-            ingredientsTextView.text = product.ingredients.first()
+            productDetailTextView.text = product.ingredients.first()
         }
 
     }
 
     class PreparationHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
-        private val preparationTextView: TextView = parent?.findViewById(R.id.preparationTextView) as TextView
+        private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
 
         override fun bind(product: Product) {
-            preparationTextView.text = product.preparation.first()
+            productDetailTextView.text = product.preparation.first()
         }
     }
 
