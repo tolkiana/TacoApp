@@ -41,20 +41,24 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
 
     class IngredientsHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
         private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
+        private val titleDetailTextView: TextView = parent?.findViewById(R.id.titleDetailTextView) as TextView
 
         override fun bind(product: Product) {
             var ingredients = product.ingredients.joinToString(separator = "\n\n")
             productDetailTextView.text = ingredients
+            titleDetailTextView.text = "Ingredients"
         }
 
     }
 
     class PreparationHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
         private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
+        private val titleDetailTextView: TextView = parent?.findViewById(R.id.titleDetailTextView) as TextView
 
         override fun bind(product: Product) {
             var preparation = product.preparation.joinToString(separator = "\n\n")
             productDetailTextView.text = preparation
+            titleDetailTextView.text = "Preparation"
         }
     }
 
