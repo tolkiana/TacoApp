@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 /**
  * Created by tolkiana on 12/23/17.
@@ -41,17 +42,20 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
     }
 
     class IngredientsHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
+        private val ingredientsTextView: TextView = parent?.findViewById(R.id.ingredientsTextView) as TextView
+
         override fun bind(product: Product) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            ingredientsTextView.text = product.ingredients.first()
         }
 
     }
 
     class PreparationHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
-        override fun bind(product: Product) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
+        private val preparationTextView: TextView = parent?.findViewById(R.id.preparationTextView) as TextView
 
+        override fun bind(product: Product) {
+            preparationTextView.text = product.preparation.first()
+        }
     }
 
     interface BindableViewHolder {
