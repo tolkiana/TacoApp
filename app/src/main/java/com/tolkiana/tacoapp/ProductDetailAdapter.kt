@@ -43,7 +43,8 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
         private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
 
         override fun bind(product: Product) {
-            productDetailTextView.text = product.ingredients.first()
+            var ingredients = product.ingredients.joinToString(separator = "\n\n")
+            productDetailTextView.text = ingredients
         }
 
     }
@@ -52,7 +53,8 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
         private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
 
         override fun bind(product: Product) {
-            productDetailTextView.text = product.preparation.first()
+            var preparation = product.preparation.joinToString(separator = "\n\n")
+            productDetailTextView.text = preparation
         }
     }
 
