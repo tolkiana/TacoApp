@@ -2,7 +2,6 @@ package com.tolkiana.tacoapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Looper
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
