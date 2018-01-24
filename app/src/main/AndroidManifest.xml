@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TacoListActivity"></activity>
+        <activity android:name=".ProductDetailActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
