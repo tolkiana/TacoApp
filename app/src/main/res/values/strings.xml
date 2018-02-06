@@ -6,4 +6,7 @@
     <string name="famous_tacos">Famous Tacos</string>
     <string name="taco_history">Taco History</string>
     <string name="taco_friends">Taco Friends</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
