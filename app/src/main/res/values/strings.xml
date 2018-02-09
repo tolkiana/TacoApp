@@ -3,4 +3,7 @@
     <string name="title_history">History</string>
     <string name="title_famous_tacos">Famous tacos</string>
     <string name="title_taco_friends">taco friends</string>
+    <string name="famous_tacos">Famous Tacos</string>
+    <string name="taco_history">Taco History</string>
+    <string name="taco_friends">Taco Friends</string>
 </resources>

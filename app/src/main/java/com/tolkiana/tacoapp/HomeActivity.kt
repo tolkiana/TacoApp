@@ -1,8 +1,8 @@
 package com.tolkiana.tacoapp
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -11,7 +11,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        famousTacosButton.setOnClickListener {
+        famousTacosCardView.setOnClickListener {
             val intent = Intent(this, TacoListActivity::class.java)
             startActivity(intent)
         }
