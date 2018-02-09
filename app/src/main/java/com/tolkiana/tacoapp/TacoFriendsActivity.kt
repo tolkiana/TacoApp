@@ -10,6 +10,7 @@ class TacoFriendsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_taco_friends)
 
-        tacoFriendsViewPager.adapter = TacoFriendsPagerAdapter(supportFragmentManager)
+        tacoFriendsViewPager.adapter = TacoFriendsPagerAdapter(resources, supportFragmentManager)
+        tacoFriendsTabLayout.setupWithViewPager(tacoFriendsViewPager)
     }
 }
