@@ -15,5 +15,10 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, TacoListActivity::class.java)
             startActivity(intent)
         }
+
+        tacoFriendsCardView.setOnClickListener {
+            val intent = Intent(this, TacoFriendsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
