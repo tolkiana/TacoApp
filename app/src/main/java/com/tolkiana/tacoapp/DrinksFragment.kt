@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.tolkiana.tacoapp.services.ProductType
 import com.tolkiana.tacoapp.services.ProductsService
 import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
 import kotlinx.android.synthetic.main.fragment_taco_friend.*
@@ -26,7 +27,7 @@ class DrinksFragment : Fragment(), ProductAdapter.OnItemClickListener {
 
         tacoFriendProgressBar.visibility = View.VISIBLE
         val productService = ProductsService()
-        productService.getDrinksList { drinksList ->
+        productService.fetchProductListForProductType(ProductType.DRINK) { drinksList ->
             val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context))
             productAdapter.onItemClickListener = this
             tacoFriendRecyclerView.layoutManager = LinearLayoutManager(context)
