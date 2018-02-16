@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.tolkiana.tacoapp.services.ProductsService
 import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
+import kotlinx.android.synthetic.main.fragment_drinks.*
 
 
 /**
@@ -18,21 +19,22 @@ import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
 class DrinksFragment : Fragment(), ProductAdapter.OnItemClickListener {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val fragmentLayout = inflater?.inflate(R.layout.fragment_drinks, container, false)
-        val drinksProgressBar = fragmentLayout?.findViewById(R.id.drinksProgressBar)
-        val drinksRecyclerView = fragmentLayout?.findViewById(R.id.drinksRecyclerView) as RecyclerView
+        return inflater?.inflate(R.layout.fragment_drinks, container, false)
+    }
 
-        drinksProgressBar?.visibility = View.VISIBLE
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        drinksProgressBar.visibility = View.VISIBLE
         val productService = ProductsService()
         productService.getDrinksList { drinksList ->
             val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context))
             productAdapter.onItemClickListener = this
             drinksRecyclerView.layoutManager = LinearLayoutManager(context)
             drinksRecyclerView.adapter = productAdapter
-            drinksProgressBar?.visibility = View.GONE
+            drinksProgressBar.visibility = View.GONE
         }
 
-        return fragmentLayout
     }
 
     override fun onItemClick(product: Product) {
