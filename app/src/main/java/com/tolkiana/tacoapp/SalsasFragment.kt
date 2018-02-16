@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.tolkiana.tacoapp.services.ProductsService
 import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
-import kotlinx.android.synthetic.main.fragment_salsas.*
+import kotlinx.android.synthetic.main.fragment_taco_friend.*
 
 
 /**
@@ -19,20 +19,20 @@ import kotlinx.android.synthetic.main.fragment_salsas.*
 class SalsasFragment : Fragment(), ProductAdapter.OnItemClickListener {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_salsas, container, false)
+        return inflater?.inflate(R.layout.fragment_taco_friend, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        salsasProgressBar.visibility = View.VISIBLE
+        tacoFriendProgressBar.visibility = View.VISIBLE
         val productService = ProductsService()
         productService.getSalsasList { salsasList ->
             val productAdapter = ProductAdapter(salsasList, ApplicationImageLoader.getInstance(context))
             productAdapter.onItemClickListener = this
-            salsasRecyclerView.layoutManager = LinearLayoutManager(context)
-            salsasRecyclerView.adapter = productAdapter
-            salsasProgressBar.visibility = View.GONE
+            tacoFriendRecyclerView.layoutManager = LinearLayoutManager(context)
+            tacoFriendRecyclerView.adapter = productAdapter
+            tacoFriendProgressBar.visibility = View.GONE
         }
     }
 
