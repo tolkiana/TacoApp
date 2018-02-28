@@ -1,6 +1,7 @@
 package com.tolkiana.tacoapp
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -13,10 +14,11 @@ import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
 import kotlinx.android.synthetic.main.fragment_taco_friend.*
 
 
+@SuppressLint("ValidFragment")
 /**
  * A simple [Fragment] subclass.
  */
-class DrinksFragment : Fragment(), ProductAdapter.OnItemClickListener {
+class TacoFriendFragment(private val productType: ProductType) : Fragment(), ProductAdapter.OnItemClickListener {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_taco_friend, container, false)
@@ -27,7 +29,7 @@ class DrinksFragment : Fragment(), ProductAdapter.OnItemClickListener {
 
         tacoFriendProgressBar.visibility = View.VISIBLE
         val productService = ProductsService()
-        productService.fetchProductListForProductType(ProductType.DRINK) { drinksList ->
+        productService.fetchProductListForProductType(productType) { drinksList ->
             val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context))
             productAdapter.onItemClickListener = this
             tacoFriendRecyclerView.layoutManager = LinearLayoutManager(context)
