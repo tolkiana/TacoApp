@@ -8,6 +8,7 @@
         android:id="@+id/productImageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:scaleType="centerCrop"
         android:layout_alignParentLeft="true" />
 
     <TextView

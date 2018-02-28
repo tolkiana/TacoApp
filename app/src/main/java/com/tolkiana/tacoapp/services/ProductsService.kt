@@ -9,7 +9,11 @@ import com.tolkiana.tacoapp.utilities.DataParser
 /**
  * Created by tolkiana on 11/10/17.
  */
-class ProductsService(val url: String) {
+class ProductsService() {
+
+    companion object {
+        private const val TACO_SERVICE_URL = "https://afternoon-sea-72400.herokuapp.com"
+    }
 
     fun getTacosList(handler: (List<Product>) -> Unit) {
         productListForProductType("/tacos", handler)
@@ -24,7 +28,7 @@ class ProductsService(val url: String) {
     }
 
     private fun productListForProductType(productType: String, handler: (List<Product>) -> Unit) {
-        val endpoint = url + productType
+        val endpoint = TACO_SERVICE_URL + productType
         endpoint.httpGet().responseString { request, response, result ->
             var tacoList = listOf<Product>()
             when (result) {
