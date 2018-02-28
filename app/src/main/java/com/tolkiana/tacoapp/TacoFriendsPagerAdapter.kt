@@ -13,8 +13,8 @@ class TacoFriendsPagerAdapter(private val resources: Resources, fragmentManager:
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> TacoFriendFragment(ProductType.SALSA)
-            else -> TacoFriendFragment(ProductType.DRINK)
+            0 -> TacoFriendFragment.newInstance(ProductType.SALSA)
+            else -> TacoFriendFragment.newInstance(ProductType.DRINK)
         }
     }
 

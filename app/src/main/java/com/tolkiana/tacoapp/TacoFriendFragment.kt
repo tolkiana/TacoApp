@@ -1,7 +1,6 @@
 package com.tolkiana.tacoapp
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -14,11 +13,19 @@ import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
 import kotlinx.android.synthetic.main.fragment_taco_friend.*
 
 
-@SuppressLint("ValidFragment")
 /**
  * A simple [Fragment] subclass.
  */
-class TacoFriendFragment(private val productType: ProductType) : Fragment(), ProductAdapter.OnItemClickListener {
+class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
+    private var productType: ProductType? = null
+
+    companion object {
+        fun newInstance(productType: ProductType): TacoFriendFragment{
+            val fragment = TacoFriendFragment()
+            fragment.productType = productType
+            return fragment
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_taco_friend, container, false)
@@ -27,6 +34,16 @@ class TacoFriendFragment(private val productType: ProductType) : Fragment(), Pro
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        productType?.let {
+            fetchProductListForProductType(it)
+        }
+    }
+
+    override fun onItemClick(product: Product) {
+        ProductDetailActivity.start(context, product)
+    }
+
+    private fun fetchProductListForProductType(productType: ProductType) {
         tacoFriendProgressBar.visibility = View.VISIBLE
         val productService = ProductsService()
         productService.fetchProductListForProductType(productType) { drinksList ->
@@ -36,11 +53,5 @@ class TacoFriendFragment(private val productType: ProductType) : Fragment(), Pro
             tacoFriendRecyclerView.adapter = productAdapter
             tacoFriendProgressBar.visibility = View.GONE
         }
-
     }
-
-    override fun onItemClick(product: Product) {
-        ProductDetailActivity.start(context, product)
-    }
-
 }
