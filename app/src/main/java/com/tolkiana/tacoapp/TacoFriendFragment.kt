@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_taco_friend.*
  */
 class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
     companion object {
-        private val ARG_PRODUCT_TYPE = "tacoFriendFrament_productType"
+        private val ARG_PRODUCT_TYPE = "productType"
 
         fun newInstance(productType: ProductType): TacoFriendFragment{
             val arguments: Bundle = Bundle()
