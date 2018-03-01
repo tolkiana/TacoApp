@@ -17,12 +17,14 @@ import kotlinx.android.synthetic.main.fragment_taco_friend.*
  * A simple [Fragment] subclass.
  */
 class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
-    private var productType: ProductType? = null
-
     companion object {
+        private val ARG_PRODUCT_TYPE = "tacoFriendFrament_productType"
+
         fun newInstance(productType: ProductType): TacoFriendFragment{
+            val arguments: Bundle = Bundle()
+            arguments.putSerializable(ARG_PRODUCT_TYPE, productType)
             val fragment = TacoFriendFragment()
-            fragment.productType = productType
+            fragment.arguments = arguments
             return fragment
         }
     }
@@ -34,7 +36,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        productType?.let {
+        (arguments.getSerializable(ARG_PRODUCT_TYPE) as ProductType)?.let {
             fetchProductListForProductType(it)
         }
     }
