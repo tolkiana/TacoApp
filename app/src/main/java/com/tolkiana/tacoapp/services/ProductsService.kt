@@ -15,20 +15,8 @@ class ProductsService() {
         private const val TACO_SERVICE_URL = "https://afternoon-sea-72400.herokuapp.com"
     }
 
-    fun getTacosList(handler: (List<Product>) -> Unit) {
-        productListForProductType("/tacos", handler)
-    }
-
-    fun getDrinksList(handler: (List<Product>) -> Unit) {
-        productListForProductType("/drinks", handler)
-    }
-
-    fun getSalsasList(handler: (List<Product>) -> Unit) {
-        productListForProductType("/salsas", handler)
-    }
-
-    private fun productListForProductType(productType: String, handler: (List<Product>) -> Unit) {
-        val endpoint = TACO_SERVICE_URL + productType
+    fun fetchProductListForProductType(productType: ProductType, handler: (List<Product>) -> Unit) {
+        val endpoint = TACO_SERVICE_URL + productType.path
         endpoint.httpGet().responseString { request, response, result ->
             var tacoList = listOf<Product>()
             when (result) {

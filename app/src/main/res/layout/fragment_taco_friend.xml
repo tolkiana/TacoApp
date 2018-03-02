@@ -4,13 +4,13 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/salsasRecyclerView"
+        android:id="@+id/tacoFriendRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"/>
 
     <ProgressBar
-        android:id="@+id/salsasProgressBar"
+        android:id="@+id/tacoFriendProgressBar"
         style="?android:attr/progressBarStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

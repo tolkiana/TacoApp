@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.tolkiana.tacoapp.services.ProductType
 
 /**
  * Created by tolkiana on 2/5/18.
@@ -12,8 +13,8 @@ class TacoFriendsPagerAdapter(private val resources: Resources, fragmentManager:
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> SalsasFragment()
-            else -> DrinksFragment()
+            0 -> TacoFriendFragment.newInstance(ProductType.SALSA)
+            else -> TacoFriendFragment.newInstance(ProductType.DRINK)
         }
     }
 
