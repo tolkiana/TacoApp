@@ -9,7 +9,7 @@ import com.tolkiana.tacoapp.utilities.DataParser
 /**
  * Created by tolkiana on 11/10/17.
  */
-class ProductsService {
+class TacoService {
 
     companion object {
         private const val TACO_SERVICE_URL = "https://afternoon-sea-72400.herokuapp.com"

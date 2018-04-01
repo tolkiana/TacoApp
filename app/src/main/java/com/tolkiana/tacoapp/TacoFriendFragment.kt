@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.tolkiana.tacoapp.services.ProductType
-import com.tolkiana.tacoapp.services.ProductsService
+import com.tolkiana.tacoapp.services.TacoService
 import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
 import kotlinx.android.synthetic.main.fragment_taco_friend.*
 
@@ -47,7 +47,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
 
     private fun fetchProductListForProductType(productType: ProductType) {
         tacoFriendProgressBar.visibility = View.VISIBLE
-        val productService = ProductsService()
+        val productService = TacoService()
         productService.fetchProductListForProductType(productType) { drinksList ->
             val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context))
             productAdapter.onItemClickListener = this
