@@ -10,6 +10,6 @@ class TacoFactsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_taco_facts)
 
-        tacoFactsPager.adapter = TacoFactsPagerAdapter(resources, supportFragmentManager)
+        tacoFactsPager.adapter = TacoFactsPagerAdapter(supportFragmentManager)
     }
 }
