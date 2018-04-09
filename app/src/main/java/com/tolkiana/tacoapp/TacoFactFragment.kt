@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_taco_fact.*
 class TacoFactFragment : Fragment() {
 
     companion object {
-        private val ARG_TACO_FACT= "tacoFact"
+        private const val ARG_TACO_FACT= "tacoFact"
 
         fun newInstance(tacoFact: TacoFact): TacoFactFragment{
             val arguments = Bundle()
@@ -28,6 +28,7 @@ class TacoFactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         (arguments.getSerializable(ARG_TACO_FACT) as TacoFact)?.let {
+            titleTextView.text = it.title
             tacoFactTextView.text = it.description
         }
     }
