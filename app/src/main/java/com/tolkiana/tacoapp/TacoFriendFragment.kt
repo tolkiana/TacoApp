@@ -36,7 +36,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (arguments.getSerializable(ARG_PRODUCT_TYPE) as ProductType)?.let {
+        (arguments.getSerializable(ARG_PRODUCT_TYPE) as ProductType).let {
             fetchProductListForProductType(it)
         }
     }

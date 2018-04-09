@@ -27,7 +27,7 @@ class TacoFactFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (arguments.getSerializable(ARG_TACO_FACT) as TacoFact)?.let {
+        (arguments.getSerializable(ARG_TACO_FACT) as TacoFact).let {
             titleTextView.text = it.title
             tacoFactTextView.text = it.description
         }
