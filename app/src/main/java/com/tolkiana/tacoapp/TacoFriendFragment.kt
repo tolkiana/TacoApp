@@ -21,7 +21,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
         private val ARG_PRODUCT_TYPE = "productType"
 
         fun newInstance(productType: ProductType): TacoFriendFragment{
-            val arguments: Bundle = Bundle()
+            val arguments = Bundle()
             arguments.putSerializable(ARG_PRODUCT_TYPE, productType)
             val fragment = TacoFriendFragment()
             fragment.arguments = arguments
