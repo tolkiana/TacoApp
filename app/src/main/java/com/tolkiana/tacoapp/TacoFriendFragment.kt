@@ -47,8 +47,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
 
     private fun fetchProductListForProductType(productType: ProductType) {
         tacoFriendProgressBar.visibility = View.VISIBLE
-        val productService = TacoService()
-        productService.fetchProductListForProductType(productType) { drinksList ->
+        TacoService().fetchProductListForProductType(productType) { drinksList ->
             val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context))
             productAdapter.onItemClickListener = this
             tacoFriendRecyclerView.layoutManager = LinearLayoutManager(context)
