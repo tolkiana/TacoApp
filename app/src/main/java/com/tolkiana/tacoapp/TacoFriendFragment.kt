@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.tolkiana.tacoapp.services.ProductType
-import com.tolkiana.tacoapp.services.ProductsService
+import com.tolkiana.tacoapp.services.TacoService
 import com.tolkiana.tacoapp.utilities.ApplicationImageLoader
 import kotlinx.android.synthetic.main.fragment_taco_friend.*
 
@@ -18,10 +18,10 @@ import kotlinx.android.synthetic.main.fragment_taco_friend.*
  */
 class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
     companion object {
-        private val ARG_PRODUCT_TYPE = "productType"
+        private const val ARG_PRODUCT_TYPE = "productType"
 
         fun newInstance(productType: ProductType): TacoFriendFragment{
-            val arguments: Bundle = Bundle()
+            val arguments = Bundle()
             arguments.putSerializable(ARG_PRODUCT_TYPE, productType)
             val fragment = TacoFriendFragment()
             fragment.arguments = arguments
@@ -36,7 +36,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (arguments.getSerializable(ARG_PRODUCT_TYPE) as ProductType)?.let {
+        (arguments.getSerializable(ARG_PRODUCT_TYPE) as ProductType).let {
             fetchProductListForProductType(it)
         }
     }
@@ -47,8 +47,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
 
     private fun fetchProductListForProductType(productType: ProductType) {
         tacoFriendProgressBar.visibility = View.VISIBLE
-        val productService = ProductsService()
-        productService.fetchProductListForProductType(productType) { drinksList ->
+        TacoService.fetchProductListForProductType(productType) { drinksList ->
             val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context))
             productAdapter.onItemClickListener = this
             tacoFriendRecyclerView.layoutManager = LinearLayoutManager(context)

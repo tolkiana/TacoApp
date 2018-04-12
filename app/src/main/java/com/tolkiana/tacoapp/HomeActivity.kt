@@ -11,6 +11,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        tacoHistoryCardView.setOnClickListener {
+            val intent = Intent(this, TacoFactsActivity::class.java)
+            startActivity(intent)
+        }
+
         famousTacosCardView.setOnClickListener {
             val intent = Intent(this, TacoListActivity::class.java)
             startActivity(intent)
