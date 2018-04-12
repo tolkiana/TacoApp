@@ -21,7 +21,7 @@
         <activity android:name=".TacoListActivity" />
         <activity android:name=".ProductDetailActivity" />
         <activity android:name=".TacoFriendsActivity" />
-        <activity android:name=".TacoFactsActivity"></activity>
+        <activity android:name=".TacoFactsActivity" />
     </application>
 
 </manifest>
