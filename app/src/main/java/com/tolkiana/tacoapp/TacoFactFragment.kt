@@ -17,7 +17,7 @@ class TacoFactFragment : Fragment() {
 
         fun newInstance(tacoFact: TacoFact): TacoFactFragment{
             val arguments = Bundle()
-            arguments.putSerializable(ARG_TACO_FACT, tacoFact)
+            arguments.putParcelable(ARG_TACO_FACT, tacoFact)
             val fragment = TacoFactFragment()
             fragment.arguments = arguments
             return fragment
@@ -27,7 +27,7 @@ class TacoFactFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (arguments.getSerializable(ARG_TACO_FACT) as TacoFact).let {
+        (arguments.getParcelable(ARG_TACO_FACT) as TacoFact).let {
             titleTextView.text = it.title
             tacoFactTextView.text = it.description
         }
