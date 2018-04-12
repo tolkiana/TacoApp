@@ -17,7 +17,7 @@ class TacoService {
     }
 
     fun fetchTacoFacts(handler: (List<TacoFact>) -> Unit) {
-        val endpoint = TACO_SERVICE_URL + "/facts"
+        val endpoint = "$TACO_SERVICE_URL/facts"
         endpoint.httpGet().responseString { _, _, result ->
             var tacoFacts = listOf<TacoFact>()
             when (result) {
