@@ -16,7 +16,7 @@ class TacoListActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener
         setContentView(R.layout.activity_taco_list)
 
         progressBar.visibility = View.VISIBLE
-        TacoService().fetchProductListForProductType(ProductType.TACO) { tacoList ->
+        TacoService.fetchProductListForProductType(ProductType.TACO) { tacoList ->
             val productAdapter = ProductAdapter(tacoList, ApplicationImageLoader.getInstance(this))
             productAdapter.onItemClickListener = this
             tacoRecyclerView.layoutManager = LinearLayoutManager(this)

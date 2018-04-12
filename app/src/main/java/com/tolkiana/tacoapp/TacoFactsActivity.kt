@@ -14,7 +14,7 @@ class TacoFactsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_taco_facts)
 
         factsProgressBar.visibility = View.VISIBLE
-        TacoService().fetchTacoFacts { tacoFacts ->
+        TacoService.fetchTacoFacts { tacoFacts ->
             tacoFactsPager.adapter = TacoFactsPagerAdapter(tacoFacts, supportFragmentManager)
             factsProgressBar.visibility = View.GONE
         }

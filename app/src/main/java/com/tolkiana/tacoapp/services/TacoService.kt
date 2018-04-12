@@ -10,11 +10,9 @@ import com.tolkiana.tacoapp.utilities.DataParser
 /**
  * Created by tolkiana on 11/10/17.
  */
-class TacoService {
+object TacoService {
 
-    companion object {
-        private const val TACO_SERVICE_URL = "https://afternoon-sea-72400.herokuapp.com"
-    }
+    private const val TACO_SERVICE_URL = "https://afternoon-sea-72400.herokuapp.com"
 
     fun fetchTacoFacts(handler: (List<TacoFact>) -> Unit) {
         val endpoint = "$TACO_SERVICE_URL/facts"
