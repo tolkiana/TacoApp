@@ -1,4 +1,8 @@
 language: android
 android:
   components:
-    -
+    - tools
+    - platform-tools
+    - tools
+    - android-27
+    - build-tools-27.1.1
