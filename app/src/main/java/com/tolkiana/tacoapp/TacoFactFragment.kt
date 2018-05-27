@@ -24,10 +24,10 @@ class TacoFactFragment : Fragment() {
         }
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (arguments.getParcelable(ARG_TACO_FACT) as TacoFact).let {
+        (arguments?.getParcelable(ARG_TACO_FACT) as TacoFact).let {
             titleTextView.text = it.title
             tacoFactTextView.text = it.description
         }

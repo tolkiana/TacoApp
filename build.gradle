@@ -2,13 +2,16 @@
 
 buildscript {
     ext.kotlin_version = '1.2.31'
+    ext.android_support_version = '27.1.1'
+    ext.jackson_version = '2.9.4'
+
     repositories {
         maven { url 'https://maven.google.com' }
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.android.tools.build:gradle:3.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
