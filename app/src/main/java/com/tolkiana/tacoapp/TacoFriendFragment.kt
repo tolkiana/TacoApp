@@ -20,7 +20,7 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
     companion object {
         private const val ARG_PRODUCT_TYPE = "productType"
 
-        fun newInstance(productType: ProductType): TacoFriendFragment{
+        fun newInstance(productType: ProductType): TacoFriendFragment {
             val arguments = Bundle()
             arguments.putSerializable(ARG_PRODUCT_TYPE, productType)
             val fragment = TacoFriendFragment()
@@ -29,26 +29,26 @@ class TacoFriendFragment : Fragment(), ProductAdapter.OnItemClickListener {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_taco_friend, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_taco_friend, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (arguments.getSerializable(ARG_PRODUCT_TYPE) as ProductType).let {
+        (arguments?.getSerializable(ARG_PRODUCT_TYPE) as ProductType).let {
             fetchProductListForProductType(it)
         }
     }
 
     override fun onItemClick(product: Product) {
-        ProductDetailActivity.start(context, product)
+        ProductDetailActivity.start(context!!, product)
     }
 
     private fun fetchProductListForProductType(productType: ProductType) {
         tacoFriendProgressBar.visibility = View.VISIBLE
         TacoService.fetchProductListForProductType(productType) { drinksList ->
-            val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context))
+            val productAdapter = ProductAdapter(drinksList, ApplicationImageLoader.getInstance(context!!))
             productAdapter.onItemClickListener = this
             tacoFriendRecyclerView.layoutManager = LinearLayoutManager(context)
             tacoFriendRecyclerView.adapter = productAdapter
