@@ -9,23 +9,23 @@ before_cache:
 
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
-  - $HOME/.android/build-cache
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
 
 env:
  global:
- - ANDROID_API=27
- - ANDROID_BUILD_TOOLS=27.1.1
+   - ANDROID_API=27
+   - ANDROID_BUILD_TOOLS=27.1.1
 
 android:
   components:
-  - tools
-  - tools # Running this twice get's the latest build tools (https://github.com/codepath/android_guides/wiki/Setting-up-Travis-CI)
-  - platform-tools
-  - android-${ANDROID_API}
-  - build-tools-${ANDROID_BUILD_TOOLS}
-  - extra
+    - tools
+    - tools # Running this twice get's the latest build tools (https://github.com/codepath/android_guides/wiki/Setting-up-Travis-CI)
+    - platform-tools
+    - android-${ANDROID_API}
+    - build-tools-${ANDROID_BUILD_TOOLS}
+    - extra
 
 script:
   - ./gradlew clean test build
