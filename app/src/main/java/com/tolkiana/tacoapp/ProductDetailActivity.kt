@@ -32,6 +32,7 @@ class ProductDetailActivity: AppCompatActivity() {
         val productDetailAdapter = ProductDetailAdapter(product)
         detailRecyclerView.layoutManager = LinearLayoutManager(this)
         detailRecyclerView.adapter = productDetailAdapter
+        title = product.name
 
         val productImageView: NetworkImageView = findViewById(R.id.productImageView) as NetworkImageView
         productImageView.setImageUrl(product.imageURL, ApplicationImageLoader.getInstance(this))
