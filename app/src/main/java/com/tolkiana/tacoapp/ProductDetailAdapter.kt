@@ -25,12 +25,12 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
 
     override fun getItemCount(): Int = 2
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as BindableViewHolder).bind(product)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
         val rowView = layoutInflater.inflate(R.layout.list_row_product_details, parent,false)
 
         return when(viewType) {
@@ -39,24 +39,24 @@ class ProductDetailAdapter(private val product: Product) : RecyclerView.Adapter<
         }
     }
 
-    class IngredientsHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
+    class IngredientsHolder(parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
         private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
         private val titleDetailTextView: TextView = parent?.findViewById(R.id.titleDetailTextView) as TextView
 
         override fun bind(product: Product) {
-            var ingredients = product.ingredients.joinToString(separator = "\n\n")
+            val ingredients = product.ingredients.joinToString(separator = "\n\n")
             productDetailTextView.text = ingredients
             titleDetailTextView.text = "Ingredients"
         }
 
     }
 
-    class PreparationHolder(private val parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
+    class PreparationHolder(parent: View?) : RecyclerView.ViewHolder(parent), BindableViewHolder {
         private val productDetailTextView: TextView = parent?.findViewById(R.id.productDetailTextView) as TextView
         private val titleDetailTextView: TextView = parent?.findViewById(R.id.titleDetailTextView) as TextView
 
         override fun bind(product: Product) {
-            var preparation = product.preparation.joinToString(separator = "\n\n")
+            val preparation = product.preparation.joinToString(separator = "\n\n")
             productDetailTextView.text = preparation
             titleDetailTextView.text = "Preparation"
         }

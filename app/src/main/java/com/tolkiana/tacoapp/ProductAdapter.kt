@@ -18,13 +18,13 @@ class ProductAdapter(private val products: List<Product>, private val imageLoade
 
     override fun getItemCount(): Int = products.size
 
-    override fun onBindViewHolder(productHolder: ProductHolder?, position: Int) {
+    override fun onBindViewHolder(productHolder: ProductHolder, position: Int) {
         val product = products[position]
-        productHolder?.bind(product, imageLoader, onItemClickListener)
+        productHolder.bind(product, imageLoader, onItemClickListener)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ProductHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
         val productRowView = layoutInflater.inflate(R.layout.list_row_product, parent, false)
         return ProductHolder(productRowView)
     }
