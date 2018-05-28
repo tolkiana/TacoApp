@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Taco App</string>
-    <string name="title_history">History</string>
+    <string name="title_history">Facts</string>
     <string name="title_famous_tacos">Famous tacos</string>
     <string name="title_taco_friends">taco friends</string>
     <string name="famous_tacos">Famous Tacos</string>
-    <string name="taco_history">Taco History</string>
+    <string name="taco_history">Taco Facts</string>
     <string name="taco_friends">Taco Friends</string>
 
     <!-- TODO: Remove or change this placeholder text -->
