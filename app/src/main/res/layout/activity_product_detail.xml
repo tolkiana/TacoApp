@@ -8,11 +8,11 @@
 
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/productImageView"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:background="@android:color/darker_gray"
+        android:adjustViewBounds="true"
+        android:background="@color/colorAccentLight"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

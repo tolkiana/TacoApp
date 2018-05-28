@@ -8,16 +8,20 @@
         android:id="@+id/productImageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:scaleType="centerCrop"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentStart="true"
+        android:background="@color/colorAccentLight"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/productNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Text"
-        android:layout_toRightOf="@id/productImageView"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="8dp"/>
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/productImageView"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/text"
+        android:textColor="@color/colorAccentDark"
+        android:textSize="18sp" />
 
 </RelativeLayout>

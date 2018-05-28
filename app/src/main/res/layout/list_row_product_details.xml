@@ -18,10 +18,11 @@
             android:id="@+id/titleDetailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_bold"
             android:textColor="@color/colorAccent"
-            android:textStyle="bold"
             android:textSize="22sp"
-            android:layout_marginBottom="10dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/productDetailTextView"
