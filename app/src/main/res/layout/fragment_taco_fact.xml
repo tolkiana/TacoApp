@@ -10,20 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="35dp"
+        android:fontFamily="@font/roboto"
         android:text="Title"
         android:textAlignment="center"
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="20sp" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccentDark"
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/tacoFactTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:fontFamily="@font/roboto_light"
+        android:gravity="center"
         android:text=""
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="26sp"
-        android:gravity="center"
-        android:layout_margin="30dp"/>
+        android:textSize="26sp" />
 
 </FrameLayout>

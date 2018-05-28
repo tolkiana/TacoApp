@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.tolkiana.tacoapp.TacoListActivity">
 
+    <ImageView
+        android:id="@+id/tacofactsBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.6"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/tacoFactsPager"
