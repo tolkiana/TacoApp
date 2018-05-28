@@ -37,16 +37,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:fontFamily="casual"
+            android:fontFamily="@font/roboto_thin"
             android:gravity="right"
-            android:text="@string/taco_history"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
             android:shadowColor="@android:color/black"
             android:shadowDx="3"
             android:shadowDy="3"
-            android:shadowRadius="3"/>
+            android:shadowRadius="3"
+            android:text="@string/taco_history"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
     </android.support.v7.widget.CardView>
 
@@ -78,16 +78,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:fontFamily="casual"
+            android:fontFamily="@font/roboto_thin"
             android:gravity="right"
-            android:text="@string/famous_tacos"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
             android:shadowColor="@android:color/black"
             android:shadowDx="3"
             android:shadowDy="3"
-            android:shadowRadius="3"/>
+            android:shadowRadius="3"
+            android:text="@string/famous_tacos"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
     </android.support.v7.widget.CardView>
 
@@ -119,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:fontFamily="casual"
+            android:fontFamily="@font/roboto_thin"
             android:gravity="right"
             android:shadowColor="@android:color/black"
             android:shadowDx="3"
@@ -127,7 +127,7 @@
             android:shadowRadius="3"
             android:text="@string/taco_friends"
             android:textColor="@android:color/white"
-            android:textSize="30sp"
+            android:textSize="32sp"
             android:textStyle="bold" />
 
     </android.support.v7.widget.CardView>
