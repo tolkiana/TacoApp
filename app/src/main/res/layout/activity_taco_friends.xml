@@ -9,7 +9,8 @@
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tacoFriendsTabLayout"
-        android:layout_height="wrap_content"
+        style="@style/TabLayoutStyle"
+        android:layout_height="65dp"
         android:layout_width="match_parent" >
 
     </android.support.design.widget.TabLayout>

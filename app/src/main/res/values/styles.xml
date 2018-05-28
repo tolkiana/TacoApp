@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabText</item>
+        <item name="tabSelectedTextColor">@color/colorAccentDark</item>
+        <item name="tabIndicatorColor">@color/colorAccentDark</item>
+    </style>
+
+    <style name="TabText" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorAccentLight</item>
+    </style>
+
 </resources>
