@@ -1,7 +1,10 @@
 package com.tolkiana.tacoapp
 
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
+import android.text.Layout.JUSTIFICATION_MODE_INTER_WORD
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,11 +27,12 @@ class TacoFactFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        tacoFactTextView.justificationMode = JUSTIFICATION_MODE_INTER_WORD
         (arguments?.getParcelable(ARG_TACO_FACT) as TacoFact).let {
-            titleTextView.text = it.title
             tacoFactTextView.text = it.description
         }
     }

@@ -19,7 +19,15 @@
         android:id="@+id/tacoFactsPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.tolkiana.tacoapp.TacoFactsActivity"/>
+        tools:context="com.tolkiana.tacoapp.TacoFactsActivity" >
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tacoFactsTabLayout"
+            style="@style/TabLayoutStyle"
+            android:layout_height="5dp"
+            android:layout_width="match_parent" />
+
+    </android.support.v4.view.ViewPager>
 
     <ProgressBar
         android:id="@+id/factsProgressBar"
