@@ -15,6 +15,7 @@ class TacoListActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_taco_list)
 
+        title = resources.getString(R.string.famous_tacos)
         progressBar.visibility = View.VISIBLE
         TacoService.fetchProductListForProductType(ProductType.TACO) { tacoList ->
             val productAdapter = ProductAdapter(tacoList, ApplicationImageLoader.getInstance(this))

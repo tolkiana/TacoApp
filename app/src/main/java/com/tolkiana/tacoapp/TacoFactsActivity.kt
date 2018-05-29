@@ -13,6 +13,7 @@ class TacoFactsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_taco_facts)
 
+        title = resources.getString(R.string.taco_history)
         factsProgressBar.visibility = View.VISIBLE
         TacoService.fetchTacoFacts { tacoFacts ->
             tacoFactsPager.adapter = TacoFactsPagerAdapter(tacoFacts, supportFragmentManager)
