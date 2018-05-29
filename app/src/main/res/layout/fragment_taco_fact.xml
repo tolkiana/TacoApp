@@ -12,7 +12,6 @@
         android:layout_margin="50dp"
         android:fontFamily="@font/roboto_light"
         android:gravity="top"
-        android:textAlignment="center"
         android:textColor="@color/colorAccentDark"
         android:textSize="26sp" />
 
