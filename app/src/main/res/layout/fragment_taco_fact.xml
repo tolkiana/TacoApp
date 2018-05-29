@@ -6,27 +6,14 @@
     tools:context=".TacoFactFragment">
 
     <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="35dp"
-        android:fontFamily="@font/roboto"
-        android:text="Title"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/colorAccentDark"
-        android:textSize="26sp" />
-
-    <TextView
         android:id="@+id/tacoFactTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="30dp"
+        android:layout_margin="50dp"
         android:fontFamily="@font/roboto_light"
-        android:gravity="center"
-        android:text=""
+        android:gravity="top"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorAccentDark"
         android:textSize="26sp" />
 
 </FrameLayout>

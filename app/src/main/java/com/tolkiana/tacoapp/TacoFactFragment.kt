@@ -28,7 +28,6 @@ class TacoFactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         (arguments?.getParcelable(ARG_TACO_FACT) as TacoFact).let {
-            titleTextView.text = it.title
             tacoFactTextView.text = it.description
         }
     }
